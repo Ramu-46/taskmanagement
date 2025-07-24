@@ -1,0 +1,9 @@
+<a href="{% url 'employees' %}"><div class="card">👥 {{ employees }} Employee</div></a>
+<a href="{% url 'all_tasks' %}"><div class="card">📋 {{ all_tasks }} All Tasks</div></a>
+<a href="{% url 'overdue_tasks' %}"><div class="card">❌ {{ overdue_tasks }} Overdue</div></a>
+<a href="{% url 'no_deadline_tasks' %}"><div class="card">⏳ {{ no_deadline }} No Deadline</div></a>
+<a href="{% url 'due_today_tasks' %}"><div class="card">⚠️ {{ due_today }} Due Today</div></a>
+<a href="#"><div class="card">🔔 {{ notifications }} Notifications</div></a>
+<a href="{% url 'pending_tasks' %}"><div class="card">🕒 {{ pending }} Pending</div></a>
+<a href="{% url 'in_progress_tasks' %}"><div class="card">🔄 {{ in_progress }} In Progress</div></a>
+<a href="{% url 'completed_tasks' %}"><div class="card">✅ {{ completed }} Completed</div></a>

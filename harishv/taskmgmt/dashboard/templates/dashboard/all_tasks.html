@@ -1,0 +1,8 @@
+<h2>📋 All Tasks</h2>
+<ul>
+  {% for task in tasks %}
+    <li>{{ task.title }} - {{ task.status }} - {{ task.due_date }}</li>
+  {% empty %}
+    <li>No tasks found.</li>
+  {% endfor %}
+</ul>
