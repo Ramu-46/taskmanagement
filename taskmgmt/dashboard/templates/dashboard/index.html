@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background-color: #1e1e2e;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 span {
+      color: #00bcd4;
+    }
+
+    .profile {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .circle {
+      width: 70px;
+      height: 70px;
+      background-color: #ddd;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .sidebar ul li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #2c2c3e;
+      border-radius: 5px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #2c2c3e;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #00bcd4;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Task<span>Pro</span></h2>
+    <div class="profile">
+      <div class="circle"></div>
+      <p>@admin</p>
+    </div>
+    <ul>
+      <li>Dashboard</li>
+      <li>Manage Users</li>
+      <li>Create Task</li>
+      <li>All Tasks</li>
+      <li>Logout</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="cards">
+      <div class="card">👥 {{ employees }} Employee</div>
+      <div class="card">📝 {{ all_tasks }} All Tasks</div>
+      <div class="card">❌ {{ overdue }} Overdue</div>
+      <div class="card">⏳ {{ no_deadline }} No Deadline</div>
+      <div class="card">⚠️ {{ due_today }} Due Today</div>
+      <div class="card">🔔 {{ notifications }} Notifications</div>
+      <div class="card">🕒 {{ pending }} Pending</div>
+      <div class="card">🔄 {{ in_progress }} In Progress</div>
+      <div class="card">✅ {{ completed }} Completed</div>
+    </div>
+  </div>
+</body>
+</html>
