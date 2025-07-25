@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ user.username }}</h2>
+
+        <!-- Top Buttons -->
+        <div style="margin: 20px 0;">
+            <a href="{% url 'create_task' %}">
+                <button style="margin-right: 10px; padding: 10px 20px; font-size: 16px;">➕ Create Task</button>
+            </a>
+            <a href="{% url 'employee_list' %}">
+                <button style="padding: 10px 20px; font-size: 16px; background-color: #3498db; color: white;">👥 Employees List</button>
+            </a>
+            <a href="{% url 'add_employee' %}">
+                <button style="padding: 10px 20px; font-size: 16px; background-color: #28a745; color: white; margin-left: 10px;">
+                    ➕ Add Employee
+                </button>
+            </a>
+        </div>
+
+        <!-- Cards -->
+        <div class="card-grid">
+            <div class="card">👥 {{ employees }} Employees</div>
+            <div class="card">📄 {{ all_tasks }} All Tasks</div>
+            <div class="card">❌ {{ overdue }} Overdue</div>
+            <div class="card">⏳ {{ no_deadline }} No Deadline</div>
+            <div class="card">⚠️ {{ due_today }} Due Today</div>
+            <div class="card">🔔 {{ notifications }} Notifications</div>
+            <div class="card">🕒 {{ pending }} Pending</div>
+            <div class="card">🔄 {{ in_progress }} In Progress</div>
+            <div class="card">✅ {{ completed }} Completed</div>
+        </div>
+    </div>
+
+    <script src="{% static 'dashboard/js/script.js' %}"></script>
+</body>
+</html>

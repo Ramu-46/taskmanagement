@@ -1,0 +1,53 @@
+{% load static %}
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+    <style>
+        .employee-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+            display: inline-block;
+        }
+        .employee-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Employee Profiles</h2>
+    <div class="grid">
+        {% for employee in employees %}
+        <div class="employee-card">
+            {% if employee.profile.profile_picture %}
+                <img src="{{ employee.profile.profile_picture.url }}" alt="Profile Picture" class="employee-img">
+            {% else %}
+                <img src="{% static 'dashboard/img/default_profile.png' %}" alt="Default Profile" class="employee-img">
+            {% endif %}
+
+            <h3>{{ employee.get_full_name|default:employee.username }}</h3>
+            <p><strong>Username:</strong> {{ employee.username }}</p>
+            <p><strong>Email:</strong> {{ employee.email }}</p>
+            <p><strong>Phone:</strong> {{ employee.profile.phone }}</p>
+            <p><strong>Role:</strong> {{ employee.profile.role }}</p>
+        </div>
+        {% empty %}
+            <p>No employees found.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
