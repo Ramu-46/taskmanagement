@@ -21,5 +21,8 @@ urlpatterns = [
     path('employees/add/', views.add_or_edit_employee, name='add_employee'),
     path('tasks/<int:pk>/edit/', views.edit_task, name='edit_task'),
     path('tasks/<int:pk>/delete/', views.delete_task, name='delete_task'),
+<<<<<<< HEAD
     path('load-employees/', views.load_employees, name='load_employees'),
+=======
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
 ]

@@ -1,7 +1,10 @@
 from django import forms # type: ignore
 from .models import Employee, Profile
 from .models import Task
+<<<<<<< HEAD
 from django.contrib.auth.models import User
+=======
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
 
 class AddEmployeeForm(forms.ModelForm):
     class Meta:
@@ -9,6 +12,7 @@ class AddEmployeeForm(forms.ModelForm):
         fields = ['profile_picture', 'name', 'email', 'phone', 'role']
 
 
+<<<<<<< HEAD
 
 class TaskForm(forms.ModelForm):
     assigned_manager = forms.ModelChoiceField(
@@ -22,6 +26,9 @@ class TaskForm(forms.ModelForm):
         label='Assign Employees'
     )
     
+=======
+class TaskForm(forms.ModelForm):
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
     class Meta:
         model = Task
         fields = ['title', 'description', 'due_date', 'status', 'alert_all']

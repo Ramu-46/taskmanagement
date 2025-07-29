@@ -49,6 +49,10 @@ class Employee(models.Model):
     phone = models.CharField(max_length=15,null=True, blank=True)
     role = models.CharField(max_length=100, null=True, blank=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+<<<<<<< HEAD
     manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='employees')
+=======
+
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
     def __str__(self):
         return self.name

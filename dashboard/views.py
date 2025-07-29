@@ -55,6 +55,7 @@ def dashboard(request):
 
 
 # ------------------- Create Task -------------------
+<<<<<<< HEAD
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -85,15 +86,25 @@ def create_task(request):
         selected_mgr = request.POST.get('assigned_manager')
         mgr_user = User.objects.filter(id=selected_mgr).first() if selected_mgr else None
 
+=======
+@login_required
+def create_task(request):
+    if request.method == "POST":
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.assigned_by = request.user
+<<<<<<< HEAD
             task.assigned_manager = mgr_user
             task.save()
             form.save_m2m()
 
             # Notify all users if alert_all is checked
+=======
+            task.save()
+
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
             if task.alert_all:
                 for user in User.objects.exclude(id=request.user.id):
                     Notification.objects.create(
@@ -101,6 +112,7 @@ def create_task(request):
                         message=f"A new task '{task.title}' has been created by {request.user.first_name}."
                     )
 
+<<<<<<< HEAD
             messages.success(request, "Task created successfully!")
             return redirect('dashboard')
     else:
@@ -125,6 +137,14 @@ def load_employees(request):
     return JsonResponse(data, safe=False)
 
 
+=======
+            return redirect('dashboard')
+    else:
+        form = TaskForm()
+    return render(request, 'dashboard/create_task.html', {'form': form})
+
+
+>>>>>>> 96b7f93918218470afc831e1752c48c59849882d
 # ------------------- Manage Users -------------------
 @login_required
 def manage_users(request):
