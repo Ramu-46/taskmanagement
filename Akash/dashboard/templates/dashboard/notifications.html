@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Alerts & Notifications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      background: #f8f9fa;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .timestamp {
+      font-size: 12px;
+      color: #777;
+    }
+    .btn-back, .btn-alerted-tasks {
+      display: inline-block;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .btn-alerted-tasks {
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔔 Task Notifications</h1>
+
+  <ul>
+    {% for n in notifications %}
+      <li>
+        {{ n.message }}<br>
+        <span class="timestamp">{{ n.timestamp }}</span>
+      </li>
+    {% empty %}
+      <li>No notifications available.</li>
+    {% endfor %}
+  </ul>
+
+  <!-- 🔁 Link to go back to Dashboard -->
+  <a href="{% url 'dashboard' %}" class="btn-back">← Back to Dashboard</a>
+
+  <!-- ✅ Link to view only alerted tasks -->
+  <a href="{% url 'alerted_tasks' %}" class="btn-alerted-tasks">📢 View Alerted Tasks</a>
+</body>
+</html>
